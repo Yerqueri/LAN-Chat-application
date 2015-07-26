@@ -39,6 +39,15 @@ function addMenu(){
             function(){
                 // Add preferences options.
                 // Edit Userdata and Miscellaneous (Blocking to be included).
+
+                var mainWin = gui.Window.get();
+                var preferWin = gui.Window.open('./preferences.html',{
+                    position: 'center',
+                    width:901,
+                    height:400,
+                    focus:true
+                });
+                mainWin.blur();
             }
         }));
 
