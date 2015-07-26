@@ -7,7 +7,8 @@ var net = require('net');
 var listDevices = require('listDevices');
 var exchangemessage = require('exchangemessage');
 var usermanage = require('usermanage');
-
+var gui = require('nw.gui');
+var os = require('os');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /////////// Setting Variables.
@@ -27,7 +28,73 @@ MESSAGINGPORT = 18160;
 //////// DOM Manipulations and UserList Refresh.
 
 // Add Menu on the Page.
+function addMenu(){
+    var appMenu = new gui.Menu({ type: 'menubar' });
+    if(os.platform() != 'darwin') {
+        // Main Menu Item 1.
+        item = new gui.MenuItem({ label: "Options" });
+        var submenu = new gui.Menu();
+        // Submenu Items.
+        submenu.append(new gui.MenuItem({ label: 'Preferences', click :
+            function(){
+                // Add preferences options.
+                // Edit Userdata and Miscellaneous (Blocking to be included).
+            }
+        }));
 
+        submenu.append(new gui.MenuItem({ label: 'Exit', click :
+            function(){
+                gui.App.quit();
+            }
+        }));
+
+        item.submenu = submenu;
+        appMenu.append(item);
+
+        // Main Menu Item 2.
+        item = new gui.MenuItem({ label: "Transfers"});
+        var submenu = new gui.Menu();
+        // Submenu 1.
+        submenu.append(new gui.MenuItem({ label: 'File Transfer', click :
+            function(){
+                var mainWin = gui.Window.get();
+                var aboutWin = gui.Window.open('./filetransfer.html',{
+                    position: 'center',
+                    width:901,
+                    height:400,
+                    focus: true
+                });
+                mainWin.blur();
+            }
+        }));
+        item.submenu = submenu;
+        appMenu.append(item);
+
+        // Main Menu Item 3.
+        item = new gui.MenuItem({ label: "Help" });
+        var submenu = new gui.Menu();
+        // Submenu 1.
+        submenu.append(new gui.MenuItem({ label: 'About', click :
+            function(){
+                var mainWin = gui.Window.get();
+                var aboutWin = gui.Window.open('./about.html', {
+                    position: 'center',
+                    width:901,
+                    height:400,
+                    focus: true
+                });
+                mainWin.blur();
+            }
+        }));
+        item.submenu = submenu;
+        appMenu.append(item);
+        gui.Window.get().menu = appMenu;
+    }
+    else {
+        // menu for mac.
+    }
+
+}
 
 // Create User Data files.
 function dataUpdate(UserName){
@@ -38,6 +105,7 @@ function dataUpdate(UserName){
 function setValues(){
     pageload();
     dataUpdate(UserName);
+    addMenu();
     document.getElementById('ipaddress').innerHTML = '<h5>'+Ipconfig.myIpAddress()+'</h5>';
     startServer();
     refreshList();
