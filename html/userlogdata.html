@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+    <title>User Log Data</title>
+    <script src="../js/HTMLDOM/userdata.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <script src="../js/HTMLDOM/welcomepage.js">
+    </script>
+    <script src="../js/mininclude/jquery-2.1.4.min.js"></script>
+    <script src="../js/mininclude/materialize.min.js"></script>
+
+</head>
+<body onload="displayValues()">
+    <table id="mainTable" class="hoverable">
+        <thead>
+          <tr>
+              <th>UserName</th>
+              <th>Number Of Logins</th>
+              <th>Ip Address Used</th>
+              <th>Last Login Time</th>
+          </tr>
+        </thead>
+
+        <tbody id="userRows">
+        </tbody>
+      </table>
+</body>
+</html>
