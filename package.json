@@ -1,0 +1,14 @@
+{
+    "name": "TheLanChatServer",
+    "main": "./html/index.html",
+    "version":"0.1.0",
+    "window" :
+                {
+                    "toolbar": false,
+                    "show": true,
+                    "height": 650,
+                    "width": 1200,
+                    "min_width": 1200,
+                    "min_height": 650
+                }
+}

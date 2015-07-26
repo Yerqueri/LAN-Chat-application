@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <title>The LAN Chat Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <script src="../js/HTMLDOM/welcomepage.js">
+    </script>
+    <script src="../js/mininclude/jquery-2.1.4.min.js"></script>
+    <script src="../js/mininclude/materialize.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50});
+        });
+
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+
+
+    </script>
+
+    <style media="screen">
+        .container{
+            width:95%;
+        }
+    </style>
+
+</head>
+<body onload="setValues()" class="white">
+    <div class="container white lighten-3 z-depth-3">
+            <div class="row" style="padding-left:22px">
+            <b class="red card-panel lighten-1 flow-text" style="font-size:60px;color:white"> ChatApp</b>
+            </div>
+            <blockquote class="row card-panel hoverable" id = 'ipaddress' style="padding-left:30px"></blockquote>
+                <div class="row flow-text" style="padding-left:22px;font-size:16px">
+                    You can check it in your Terminal/Command Prompt.<br>
+                    For Windows Users : 1. Open cmd, 2. Run 'ipconfig', and check for ipv4 address.<br>
+                    For Unix Users : 1. Open terminal, 2. Run 'ifconfig', and check for ipv4 address(except localhost address).<br>
+                </div>
+<br>
+    <div class="row" style="padding-left:22px;font-size:16px">
+        Wondering how this Works? <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><br>
+        Well, first things first, <b> I can't see any of your messages. Only the one's sent to me.:p </b><br>
+        Message anyone connected with you on LAN (behind the same gateway ofcourse).<br>
+        <b>No abuse. The reciever can see your IP Address.</b><br>
+        It's a simple peer to peer Messaging/(to be)File Transfer App. Made with Nodejs and node-webkit Chrome engine. And MaterializeCss to hide my designing skills.<br>
+        For more info, check it out on github.com/dastanforever/ChatApp.<br>
+        <b>Coming Soon - FILE TRANSFERS!!!</b>
+    </div>
+
+        <div class="row">
+                <div class="col l6 card-panel flow-text">
+                    <blockquote>Enter Your UserName :</blockquote>
+                </div>
+        </div>
+        <form class="row" action="home.html" method="get" style="padding-left:30px">
+            <div class="col l6 input-field" >
+                <input type="text" name="username" class="validate" id="exampleInputName2">
+                <label for="exampleInputName2">Your Name</label>
+            </div>
+            <button type="submit" class="btn waves-teal waves-light tooltipped" style="margin-left:20px;" data-position="right" data-delay="50" data-tooltip="Go!!">Start Chatting.
+            </button>
+        </form>
+        <div class="row flow-text" style="margin-left:20px;">Initializing Servers.</div>
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+
+    <div class="row">
+
+        <!-- Modal Trigger -->
+
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1" style="margin-left:30px">Know more about this project.</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Project ChatApp</h4>
+      <p>This project is made from Nodejs a javascript technology to run on Server Side, with node-webkit to
+      make desktop apps with nodejs. Using simple network concepts and well defined libraries of nodejs, this
+      project's code can be understood.
+      </p>
+      Contact me (pranav.sharma.nits@outlook.com) for further improvements, or help.
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Get Back</a>
+    </div>
+  </div>
+
+
+
+    </div>
+    <br>
+    <br>
+    </div>
+</body>
+</html>
