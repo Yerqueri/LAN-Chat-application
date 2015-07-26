@@ -1,6 +1,5 @@
 var Ipconfig = require('Ipconfig');
 var gui = require('nw.gui');
-var appmenu = require('appmenu');
 var mkdirp = require('mkdirp');
 var os = require('os');
 var usermanage = require('usermanage');
@@ -21,10 +20,7 @@ function makeFileDir() {
 // Make the Menu
 
 function addMenu (typeOfPage){
-
-    if(typeOfPage == 'welcome') {
         var appMenu = new gui.Menu({ type: 'menubar' });
-
         if(os.platform() != 'darwin') {
             // Main Menu Item 1.
             item = new gui.MenuItem({ label: "Options" });
@@ -62,12 +58,6 @@ function addMenu (typeOfPage){
         else {
             // menu for mac.
         }
-    }
-    else if(typeOfPage == 'mainpage'){
-
-    }
-
-
 }
 
 // Function to set all the DOM Values.
