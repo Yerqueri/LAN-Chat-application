@@ -41,6 +41,8 @@ function addMenu(){
                 // Edit Userdata and Miscellaneous (Blocking to be included).
 
                 var mainWin = gui.Window.get();
+
+
                 var preferWin = gui.Window.open('./preferences.html',{
                     position: 'center',
                     width:901,
@@ -48,6 +50,20 @@ function addMenu(){
                     focus:true
                 });
                 mainWin.blur();
+            }
+        }));
+
+        submenu.append(new gui.MenuItem({ label: 'User Log Data', click :
+            function(){
+                var mainWin = gui.Window.get();
+
+                var logWin = gui.Window.open('./userlogdata.html',{
+                    position: 'center',
+                    width:901,
+                    height:400,
+                    toolbar: false,
+                    focus:true
+                });
             }
         }));
 
@@ -71,6 +87,7 @@ function addMenu(){
                     position: 'center',
                     width:901,
                     height:400,
+                    toolbar: false,
                     focus: true
                 });
                 mainWin.blur();
@@ -90,6 +107,7 @@ function addMenu(){
                     position: 'center',
                     width:901,
                     height:400,
+                    toolbar: false,
                     focus: true
                 });
                 mainWin.blur();

@@ -2,6 +2,7 @@ var Ipconfig = require('Ipconfig');
 var gui = require('nw.gui');
 var mkdirp = require('mkdirp');
 var os = require('os');
+var fs = require('fs');
 var usermanage = require('usermanage');
 
 
@@ -63,6 +64,15 @@ function addMenu (typeOfPage){
 // Function to set all the DOM Values.
 function setValues(){
     addMenu('welcome');
+
+    fs.exists('../UserData.txt',function(exists){
+        if(exists){
+            fs.readFile('../UserData.txt',function(err,data){
+                jsonData = JSON.parse(data);
+                document.getElementById('exampleInputName2').value = jsonData['recentuser'];
+            });
+        }
+    });
 
     document.body.addEventListener('contextmenu', function(ev) {
         ev.preventDefault();
